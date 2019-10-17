@@ -1,0 +1,13 @@
+current directory: /Users/thedarkknight/Documents/Rails-practise/stocking/vendor/bundle/gems/json-2.2.0/ext/json
+/Users/thedarkknight/.rvm/rubies/ruby-2.6.4/bin/ruby -I /Users/thedarkknight/.rvm/rubies/ruby-2.6.4/lib/ruby/site_ruby/2.6.0 -r ./siteconf20191016-58602-1ny7om7.rb extconf.rb
+creating Makefile
+
+current directory: /Users/thedarkknight/Documents/Rails-practise/stocking/vendor/bundle/gems/json-2.2.0/ext/json
+make "DESTDIR=" clean
+
+current directory: /Users/thedarkknight/Documents/Rails-practise/stocking/vendor/bundle/gems/json-2.2.0/ext/json
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+current directory: /Users/thedarkknight/Documents/Rails-practise/stocking/vendor/bundle/gems/json-2.2.0/ext/json
+make "DESTDIR=" install

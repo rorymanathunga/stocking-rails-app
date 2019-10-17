@@ -1,2 +1,16 @@
 <h1>Stock This</h1>
-<p>Let's do it do it</p>
+
+<%= form_tag root_path, :method => 'POST' do %>
+  <%= text_field_tag 'ticker', nil, placeholder: "Enter Ticker Symbol", size: 50 %>
+  <%= submit_tag 'Lookup' %>
+<% end %>
+<br>
+<% if @stock %>
+  <%= @stock.company_name %>
+  <br>
+  <%= @stock.employees %>
+  <br>
+  <%= @stock.week_52_high_dollar %>
+  <br>
+  <%= @stock.week_52_low_dollar %>
+<% end %>
