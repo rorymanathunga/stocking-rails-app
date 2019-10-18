@@ -6,6 +6,9 @@
 <% end %>
 <br>
 <% if @stock %>
+  <% if @stock == "" %>
+    That doesn't exist?!?!
+  <% end %>
   <%= @stock.company_name %>
   <br>
   <%= @stock.employees %>
@@ -13,4 +16,10 @@
   <%= @stock.week_52_high_dollar %>
   <br>
   <%= @stock.week_52_low_dollar %>
+<% elsif @nothing %>
+    <%= @nothing %>
+<% end %>
+
+<% if @error %>
+  <%= @error %>
 <% end %>
