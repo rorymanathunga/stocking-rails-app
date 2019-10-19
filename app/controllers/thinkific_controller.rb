@@ -1,12 +1,14 @@
 require 'securerandom' unless defined?(SecureRandom)
 
-class SessionController < ApplicationController
+class ThinkificController < ApplicationController
   # Configuration
-  THINKIFIC_API_KEY = ENV["THINKIFIC_API_KEY"]
-  THINKIFIC_SUBDOMAIN = ENV["THINKIFIC_SUBDOMAIN"]
+  # THINKIFIC_API_KEY = ENV["THINKIFIC_API_KEY"]
+  # THINKIFIC_SUBDOMAIN = ENV["THINKIFIC_SUBDOMAIN"]
 
   def create
-    if user = User.authenticate(params[:login], params[:password])
+    if user_signed_in?
+      user = current_user
+    # if user = User.authenticate(params[:login], params[:password])
       # If the submitted credentials pass, then log user into Thinkific
       sign_into_thinkific(user)
     else
