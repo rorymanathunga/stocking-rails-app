@@ -12,6 +12,12 @@
       <li class="nav-item active">
       <% if user_signed_in? %>
           <li class="nav-item active">
+            <%= link_to "Add Stock", new_stock_path, class:'nav-link' %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "My Stocks", stocks_path, class:'nav-link' %>
+          </li>
+          <li class="nav-item active">
             <%= link_to "My Courses", thinkific_create_path, class:'nav-link', :method => :post %>
           </li>
           <li class="nav-item active">

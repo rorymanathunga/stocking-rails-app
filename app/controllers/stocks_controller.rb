@@ -1,6 +1,7 @@
 class StocksController < ApplicationController
   before_action :set_stock, only: [:show, :edit, :update, :destroy]
-
+  before_aciton :correct_user, only: [:edit, :show, :update, :destroy]
+  before_action :authenticate_user!
   # GET /stocks
   # GET /stocks.json
   def index
@@ -59,6 +60,11 @@ class StocksController < ApplicationController
       format.html { redirect_to stocks_url, notice: 'Stock was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def correct_user
+    @ticker = current_user.stocks.find_by(id: params[:id])
+    redirect_to stocks_path, notice: "End of the line bub" if @ticker.nil?
   end
 
   private
