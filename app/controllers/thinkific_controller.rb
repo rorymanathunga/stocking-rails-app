@@ -33,6 +33,7 @@ class ThinkificController < ApplicationController
       :first_name  => user.first_name,
       :last_name => user.last_name,
       :email => user.email,
+      :external_id => user.id,
      }, THINKIFIC_API_KEY)
     redirect_to thinkific_sso_url(payload)
   end

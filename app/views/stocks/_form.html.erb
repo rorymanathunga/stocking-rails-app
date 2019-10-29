@@ -1,5 +1,5 @@
 <%= form_with(model: stock, local: true) do |form| %>
-  <% if stock.errors.any? %>
+  <% if stock.errors.any?%>
     <div id="error_explanation">
       <h2><%= pluralize(stock.errors.count, "error") %> prohibited this stock from being saved:</h2>
 
@@ -17,8 +17,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
+    <%= form.number_field :user_id,
+      value: current_user.id, type: :hidden %>
   </div>
 
   <div class="actions">

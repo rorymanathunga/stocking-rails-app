@@ -1,13 +1,14 @@
 class StocksController < ApplicationController
   before_action :set_stock, only: [:show, :edit, :update, :destroy]
-  # before_aciton :correct_user, only: [:edit, :show, :update, :destroy]
   before_action :authenticate_user!
+  before_action :correct_user, only: [:show, :edit, :update, :destroy]
+
+
   # GET /stocks
   # GET /stocks.json
   def index
     @stocks = Stock.all
   end
-
   # GET /stocks/1
   # GET /stocks/1.json
   def show
@@ -20,6 +21,7 @@ class StocksController < ApplicationController
 
   # GET /stocks/1/edit
   def edit
+    @stock = Stock.find(id)
   end
 
   # POST /stocks
@@ -62,10 +64,10 @@ class StocksController < ApplicationController
     end
   end
 
-  # def correct_user
-  #   @ticker = current_user.stocks.find_by(id: params[:id])
-  #   redirect_to stocks_path, notice: "End of the line bub" if @ticker.nil?
-  # end
+  def correct_user
+    @ticker = current_user.stocks.find_by(id: params[:id])
+    redirect_to stocks_path, notice: "End of the line bub" if @ticker.nil?
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

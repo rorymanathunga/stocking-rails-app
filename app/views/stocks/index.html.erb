@@ -13,13 +13,15 @@
 
   <tbody>
     <% @stocks.each do |stock| %>
-      <tr>
-        <td><%= stock.ticker %></td>
-        <td><%= stock.user_id %></td>
-        <td><%= link_to 'Show', stock %></td>
-        <td><%= link_to 'Edit', edit_stock_path(stock) %></td>
-        <td><%= link_to 'Destroy', stock, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <% if stock.user_id == current_user.id %>
+        <tr>
+          <td><%= stock.ticker %></td>
+          <td><%= stock.user_id %></td>
+          <td><%= link_to 'Show', stock %></td>
+          <td><%= link_to 'Edit', edit_stock_path(stock) %></td>
+          <td><%= link_to 'Destroy', stock, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
