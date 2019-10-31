@@ -3,11 +3,14 @@ class StocksController < ApplicationController
   before_action :authenticate_user!
   before_action :correct_user, only: [:show, :edit, :update, :destroy]
 
-
   # GET /stocks
   # GET /stocks.json
   def index
     @stocks = Stock.all
+    @client = IEX::Api::Client.new(
+      publishable_token: 'Tpk_ccf8b92f0f0b405bbb17b313af8da443',
+      endpoint: 'https://sandbox.iexapis.com/v1'
+    )
   end
   # GET /stocks/1
   # GET /stocks/1.json
