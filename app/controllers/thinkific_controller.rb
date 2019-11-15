@@ -4,8 +4,6 @@ class ThinkificController < ApplicationController
   # Configuration
   # THINKIFIC_API_KEY = ENV["THINKIFIC_API_KEY"]
   # THINKIFIC_SUBDOMAIN = ENV["THINKIFIC_SUBDOMAIN"]
-  THINKIFIC_API_KEY = "828ed116df8af1ac464bdb4cec121d1c"
-  THINKIFIC_SUBDOMAIN = "manasports"
 
   def create
     if user_signed_in?
