@@ -2,8 +2,8 @@ require 'securerandom' unless defined?(SecureRandom)
 
 class ThinkificController < ApplicationController
   # Configuration
-  # THINKIFIC_API_KEY = ENV["THINKIFIC_API_KEY"]
-  # THINKIFIC_SUBDOMAIN = ENV["THINKIFIC_SUBDOMAIN"]
+  THINKIFIC_API_KEY = ENV["THINKIFIC_API_KEY"]
+  THINKIFIC_SUBDOMAIN = ENV["THINKIFIC_SUBDOMAIN"]
 
   def create
     if user_signed_in?
