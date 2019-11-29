@@ -4,7 +4,7 @@ class ThinkificController < ApplicationController
   # Configuration
   # THINKIFIC_API_KEY = ENV["THINKIFIC_API_KEY"]
   # THINKIFIC_SUBDOMAIN = ENV["THINKIFIC_SUBDOMAIN"]
-  THINKIFIC_API_KEY = "828ed116df8af1ac464bdb4cec121d1c"
+  THINKIFIC_API_KEY = "6e3b53b6bad7614f4fb5e04e4bba8211"
   THINKIFIC_SUBDOMAIN = "manasports"
 
   def create
@@ -33,7 +33,6 @@ class ThinkificController < ApplicationController
       :first_name  => user.first_name,
       :last_name => user.last_name,
       :email => user.email,
-      :external_id => user.id,
      }, THINKIFIC_API_KEY)
     redirect_to thinkific_sso_url(payload)
   end
