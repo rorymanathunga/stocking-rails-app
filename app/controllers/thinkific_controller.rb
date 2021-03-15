@@ -2,10 +2,8 @@ require 'securerandom' unless defined?(SecureRandom)
 
 class ThinkificController < ApplicationController
   # Configuration
-  # THINKIFIC_API_KEY = ENV["THINKIFIC_API_KEY"]
-  # THINKIFIC_SUBDOMAIN = ENV["THINKIFIC_SUBDOMAIN"]
-  THINKIFIC_API_KEY = "6e3b53b6bad7614f4fb5e04e4bba8211"
-  THINKIFIC_SUBDOMAIN = "manasports"
+  THINKIFIC_API_KEY = "Replace with THINKIFIC_API_KEY"
+  THINKIFIC_SUBDOMAIN = "Replace with THINKIFIC_SUBDOMAIN"
 
   def create
     if user_signed_in?
@@ -28,11 +26,12 @@ class ThinkificController < ApplicationController
     iat = Time.now.to_i
     jti = "#{iat}/#{SecureRandom.hex(18)}"
     payload = JWT.encode({
-      :iat   => iat,
+      :iat   => iat - 500,
       :jti   => jti,
       :first_name  => user.first_name,
       :last_name => user.last_name,
       :email => user.email,
+      :external_id => user.id
      }, THINKIFIC_API_KEY)
     redirect_to thinkific_sso_url(payload)
   end
@@ -40,7 +39,7 @@ class ThinkificController < ApplicationController
 
   def thinkific_sso_url(payload)
     url = "http://#{THINKIFIC_SUBDOMAIN}.thinkific.com/api/sso/v2/sso/jwt?jwt=#{payload}"
-    url += "&return_to=#{URI.escape(params["return_to"])}" if params["return_to"].present?
+    url += "&return_to=https://academy.manarugbycoach.com/courses/january-2021"
     url += "&error_url=#{URI.escape(params["error_url"])}" if params["error_url"].present?
     url
   end
