@@ -1,0 +1,15 @@
+current directory: /Users/thedarkknight/Documents/1_BatComputer/stocking/vendor/bundle/gems/websocket-driver-0.7.3/ext/websocket-driver
+/Users/thedarkknight/.rvm/rubies/ruby-2.6.4/bin/ruby -I /Users/thedarkknight/.rvm/rubies/ruby-2.6.4/lib/ruby/site_ruby/2.6.0 -r ./siteconf20210315-76546-wv81zj.rb extconf.rb
+creating Makefile
+
+current directory: /Users/thedarkknight/Documents/1_BatComputer/stocking/vendor/bundle/gems/websocket-driver-0.7.3/ext/websocket-driver
+make "DESTDIR=" clean
+
+current directory: /Users/thedarkknight/Documents/1_BatComputer/stocking/vendor/bundle/gems/websocket-driver-0.7.3/ext/websocket-driver
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.bundle
+
+current directory: /Users/thedarkknight/Documents/1_BatComputer/stocking/vendor/bundle/gems/websocket-driver-0.7.3/ext/websocket-driver
+make "DESTDIR=" install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 websocket_mask.bundle ./.gem.20210315-76546-s2duqu
